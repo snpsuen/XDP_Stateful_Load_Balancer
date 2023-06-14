@@ -38,6 +38,23 @@ docker run -d --name backend-B -h backend-B nginxdemos/hello:plain-text
 docker run -d --name curlclient -h curlclient curlimages/curl:latest sleep infinity
 ```
 
+## Test it out
+The load balancer is hardcoded to the IP 172.17.0.2.
+1. Issue a curl command from the curl client to the load balancer in a loop.
+```
+while true
+do
+curl -s http://172.17.0.2
+sleep 3
+echo ""
+done
+```
+Expect to receive replies randomly from backend-A, 172.17.0.3 or backend-B, 172.17.0.4.
+
+
+
+
+
 
 
 
