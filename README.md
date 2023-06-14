@@ -4,4 +4,11 @@ The bulk of the eBPF/XDP code borrows from Liz Rice's sample eBPF load balancer 
 * A forward table to send the traffic of a TCP connection toward a chosen backend server via DNAT.
 * A return table to bring the traffic of a TCP connection back to the requesting client via SNAT.
 ## Build the load balancer
-1. 
+1. Pull an eBPF/XDP ready docker to run a container as the platform of the load balancer.
+```
+docker run -d --privileged --name simplelb -h simplelb snpsuen/ebpfxdp:v05
+docker exec -it simplelb bash
+```
+2. Download this repo, XDP_Stateful_Load_Balancer.
+
+
