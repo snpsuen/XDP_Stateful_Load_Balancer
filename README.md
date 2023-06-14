@@ -20,7 +20,7 @@ git clone https://github.com/snpsuen/XDP_Stateful_Load_Balancer.git
 cd XDP*
 make
 ls /sys/fs/bpf
-ip addr show
+ip addr show eth0
 ```
 4. Open a terminal to the host of the container and display the on-going eBPF/XDP kernel traces in real time.
 ```
