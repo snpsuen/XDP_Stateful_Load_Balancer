@@ -4,7 +4,7 @@ The bulk of the eBPF/XDP code borrows from Liz Rice's sample eBPF load balancer 
 * A forward table to send the traffic of a TCP connection toward a chosen backend server via DNAT.
 * A return table to bring the traffic of a TCP connection back to the requesting client via SNAT.
 ## Build the load balancer
-The simple load balancer will be hardcoded to dispatch requests randomly to two backend servers at known IP and MAC addresses.
+The whole end-to-end set up is to be done in the Killercoda online lab, https://killercoda.com/. The simple load balancer wil be hardcoded to dispatch requests randomly to two backend servers at known IP and MAC addresses.
 1. Pull an eBPF/XDP ready docker to run a container as the platform of the load balancer.
 ```
 docker run -d --privileged --name simplelb -h simplelb snpsuen/ebpfxdp:v05
@@ -20,7 +20,7 @@ git clone https://github.com/snpsuen/XDP_Stateful_Load_Balancer.git
 cd XDP*
 make
 ls /sys/fs/bpf
-ip addr
+ip addr show
 ```
 4. Open a terminal to the host of the container and display the on-going eBPF/XDP kernel traces in real time.
 ```
@@ -28,6 +28,19 @@ sudo cat /sys/kernel/debug/tracing/trace_pipe
 ```
 
 ## Deploy backend servers and client
+1. Run a pair of backend servers on the nginx hello docker.
+```
+docker run -d --name backend-A -h backend-A nginxdemos/hello:plain-text
+docker run -d --name backend-B -h backend-B nginxdemos/hello:plain-text
+```
+2. Run a curl client container on the curlimages docker.
+```
+docker run -d --name curlclient -h curlclient curlimages/curl:latest sleep infinity
+```
+
+
+
+
 
 
 
