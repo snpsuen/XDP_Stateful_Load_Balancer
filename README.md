@@ -5,7 +5,7 @@ The bulk of the eBPF/XDP code borrows from Liz Rice's sample eBPF load balancer 
 * A return table to bring the traffic of a TCP connection back to the requesting client via SNAT.
 ## Build the load balancer
 The whole end-to-end set up is to be done in the Killercoda online lab, https://killercoda.com/. The simple load balancer wil be hardcoded to dispatch requests randomly to two backend servers at known IP and MAC addresses.
-1. Pull an eBPF/XDP ready docker to run a container as the platform of the load balancer.
+1. Pull a pre-built eBPF/XDP ready docker to run a container as the platform of the load balancer.
 ```
 docker run -d --privileged --name simplelb -h simplelb snpsuen/ebpfxdp:v05
 docker exec -it simplelb bash
