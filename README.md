@@ -52,6 +52,38 @@ echo ""
 done
 ```
 Expect to receive replies randomly from backend-A, 172.17.0.3 or backend-B, 172.17.0.4.
+```
+~ $ while true
+> do
+> curl -s http://172.17.0.2
+> sleep 3
+> echo ""
+> done
+Server address: 172.17.0.4:80
+Server name: backend-b
+Date: 14/Jun/2023:17:35:10 +0000
+URI: /
+Request ID: 7b33d855729771f3c5428497253a7496
+
+Server address: 172.17.0.3:80
+Server name: backend-a
+Date: 14/Jun/2023:17:35:13 +0000
+URI: /
+Request ID: 443b0d7e6ad822be6ab4254eccf8f84b
+
+Server address: 172.17.0.4:80
+Server name: backend-b
+Date: 14/Jun/2023:17:35:16 +0000
+URI: /
+Request ID: 3e709e55e19ae3aa9236527335aab01c
+
+Server address: 172.17.0.3:80
+Server name: backend-a
+Date: 14/Jun/2023:17:35:19 +0000
+URI: /
+Request ID: 2a39c56438dbbf041379e18e09a1fc5f
+```
+
 
 
 
