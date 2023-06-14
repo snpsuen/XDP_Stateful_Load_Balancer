@@ -4,6 +4,7 @@ The bulk of the eBPF/XDP code borrows from Liz Rice's sample eBPF load balancer 
 * A forward table to send the traffic of a TCP connection toward a chosen backend server via DNAT.
 * A return table to bring the traffic of a TCP connection back to the requesting client via SNAT.
 ## Build the load balancer
+The simple load balancer will be hardcoded to dispatch requests randomly to two backend servers at known IP and MAC addresses.
 1. Pull an eBPF/XDP ready docker to run a container as the platform of the load balancer.
 ```
 docker run -d --privileged --name simplelb -h simplelb snpsuen/ebpfxdp:v05
@@ -25,7 +26,7 @@ ip addr
 ```
 sudo cat /sys/kernel/debug/tracing/trace_pipe
 ```
-The toy load balancer is hardcoded to redirect requests randomly to two backend servers at known IP and MAC addresses.
+
 ## Deploy backend servers and client
 
 
