@@ -42,6 +42,7 @@ docker run -d --name curlclient -h curlclient curlimages/curl:latest sleep infin
 The load balancer is hardcoded to the IP 172.17.0.2.
 1. Issue a curl command from the curl client to the load balancer in a loop.
 ```
+docker exec -it curlclient sh
 while true
 do
 curl -s http://172.17.0.2
